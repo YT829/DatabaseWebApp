@@ -15,7 +15,7 @@ class Navbars extends Component {
       <div>
         <Navbar bg="light" expand="lg">
           <LinkContainer to="/">
-            <Navbar.Brand>Goodies</Navbar.Brand>
+            <img src="/goodies-logo.png" alt="" width="100px" />
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -34,11 +34,15 @@ class Navbars extends Component {
                 <Button variant="outline-success">Search</Button>
               </Form>
               <LinkContainer to="/">
-                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <Nav.Link href="#action2">Shopping Bag</Nav.Link>
+              <LinkContainer to="/shopping">
+                <Nav.Link>Shopping Bag</Nav.Link>
+              </LinkContainer>
               <NavDropdown title="My Account" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
+                <LinkContainer to="/profile">
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                </LinkContainer>
                 <NavDropdown.Item href="#action4">Log out</NavDropdown.Item>
               </NavDropdown>
             </Nav>
