@@ -1,11 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
-import Navbar from "./components/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import App from "./App";
+import Login from "./components/Login";
+import Navbars from "./components/Navbar";
+import Signup from "./components/Login/signup";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
-  </React.StrictMode>
+    <Router>
+      <Navbars />
+      <Routes>
+        <Route exact path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
+  </React.StrictMode>,
+  document.getElementById("root")
 );

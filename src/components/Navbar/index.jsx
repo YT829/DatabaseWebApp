@@ -1,43 +1,29 @@
 import React, { Component } from "react";
+import { LinkContainer } from "react-router-bootstrap";
 import {
   Nav,
-  Container,
   NavDropdown,
   Form,
   FormControl,
   Button,
+  Navbar,
 } from "react-bootstrap";
 
-class Navbar extends Component {
+class Navbars extends Component {
   render() {
     return (
       <div>
         <Navbar bg="light" expand="lg">
-          <Container fluid>
-            <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action2">Link</Nav.Link>
-                <NavDropdown title="Link" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Nav.Link href="#" disabled>
-                  Link
-                </Nav.Link>
-              </Nav>
+          <LinkContainer to="/">
+            <Navbar.Brand>Goodies</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
               <Form className="d-flex">
                 <FormControl
                   type="search"
@@ -47,12 +33,30 @@ class Navbar extends Component {
                 />
                 <Button variant="outline-success">Search</Button>
               </Form>
-            </Navbar.Collapse>
-          </Container>
+              <LinkContainer to="/">
+                <Nav.Link href="#action1">Home</Nav.Link>
+              </LinkContainer>
+              <Nav.Link href="#action2">Shopping Bag</Nav.Link>
+              <NavDropdown title="My Account" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Log out</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <LinkContainer to="/signup">
+              <Button className="me-2" variant="outline-success" size="lg">
+                Sign Up
+              </Button>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <Button className="me-2" variant="success" size="lg">
+                Log In
+              </Button>
+            </LinkContainer>
+          </Navbar.Collapse>
         </Navbar>
       </div>
     );
   }
 }
 
-export default Navbar;
+export default Navbars;
