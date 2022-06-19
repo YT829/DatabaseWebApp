@@ -1,14 +1,16 @@
 .carousel img {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
-  border: 6px solid #000000;
-  max-width: 50%;
+  border: 6px solid #ffffff;
+  max-width: 1208px;
   margin-top: 50px;
-  width: 1208px;
   height: 500px;
+  border-radius: 30px;
 }
 
 .container-carousel {
-  min-height: 900px;
+  min-height: 50vh;
 }

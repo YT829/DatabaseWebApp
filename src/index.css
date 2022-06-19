@@ -1,6 +1,6 @@
 body {
   background-image: url("/public/wall.jpg");
-  background-size: 100%;
+  background-size: 500%;
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
