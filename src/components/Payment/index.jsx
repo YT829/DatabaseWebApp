@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { LinkContainer } from "react-router-bootstrap";
 import "./index.css";
 
 class Payment extends Component {
@@ -75,7 +76,9 @@ class Payment extends Component {
                 </div>
               </div>
             </div>
-            <button className="submit-btn">Proceed To Checkout</button>
+            <LinkContainer to="/thankyou">
+              <button className="submit-btn">Proceed To Checkout</button>
+            </LinkContainer>
           </form>
         </div>
       </div>

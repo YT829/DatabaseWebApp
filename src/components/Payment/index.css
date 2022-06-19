@@ -6,6 +6,25 @@
   background-size: 500%;
 }
 
+.container-thankyou {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.container-thankyou form {
+  padding: 20px;
+  width: 700px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .container-payment form {
   padding: 20px;
   width: 700px;
@@ -84,4 +103,19 @@
 
 .container-payment form .submit-btn:hover {
   background: #c291e0;
+}
+
+.thankyou {
+  margin-bottom: 20px;
+}
+
+.button-thankyou {
+  padding: 10px;
+  border-radius: 30px;
+  background-color: rgb(208, 171, 230);
+  cursor: pointer;
+}
+
+.button-thankyou:hover {
+  background-color: rgb(236, 208, 254);
 }

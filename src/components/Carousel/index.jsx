@@ -4,43 +4,31 @@ import "./index.css";
 
 const UncontrolledExample = () => {
   return (
-    <Carousel>
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <div className="container-carousel">
+      <Carousel className="carousel">
+        <Carousel.Item interval={2000}>
+          <img
+            className="d-block w-100"
+            src="https://thumbs.dreamstime.com/b/product-advertisement-beauty-cosmetic-cream-mockup-pretty-pink-color-great-health-facial-care-products-196679991.jpg"
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item interval={2000}>
+          <img
+            className="d-block w-100"
+            src="https://s3.amazonaws.com/media.mediapost.com/dam/cropped/2019/12/06/screenshot-2019-12-05-at-23107-pm_kKdoMd4.png"
+            alt="Second slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://www.wordstream.com/wp-content/uploads/2021/07/persuasive-ads-coca-cola.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+      </Carousel>
+    </div>
   );
 };
 

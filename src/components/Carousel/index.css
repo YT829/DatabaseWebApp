@@ -1,8 +1,14 @@
-.carousel {
+.carousel img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: 6px ridge #545565;
+  border: 6px solid #000000;
   max-width: 50%;
   margin-top: 50px;
+  width: 1208px;
+  height: 500px;
+}
+
+.container-carousel {
+  min-height: 900px;
 }

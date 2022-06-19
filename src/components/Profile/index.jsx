@@ -9,7 +9,6 @@ class Profile extends Component {
         <div className="left">
           <img src="/user.png" className="image" alt="" />
           <h1 className="name">Davidson</h1>
-          <hr />
           <ul className="ul-profile">
             <li className="li-profile">
               <a href="/">Home</a>

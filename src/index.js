@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Edit from "./components/Profile/edit";
 import Payment from "./components/Payment";
+import Thankyou from "./components/Payment/thankyou";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/shopping" element={<Shopping />} />
         <Route path="/edit" element={<Edit />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/thankyou" element={<Thankyou />} />
       </Routes>
       <Footer />
     </Router>

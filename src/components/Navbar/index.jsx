@@ -8,14 +8,15 @@ import {
   Button,
   Navbar,
 } from "react-bootstrap";
+import "./index.css";
 
 class Navbars extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg">
+        <Navbar className="img-container" bg="light" expand="lg">
           <LinkContainer to="/">
-            <img src="/goodies-logo.png" alt="" width="100px" />
+            <img src="/goodies-logo.png" alt="" />
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
