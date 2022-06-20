@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, Button } from "react-bootstrap";
 import Features from "../Features";
 import "./index.css";
+import axios from "axios";
+
+const baseURL = "http://localhost:3000/products";
 
 const Home = () => {
   const [show, setShow] = useState(false);
+  const [post, setPost] = useState("");
+  const [cart, setCart] = useState(0);
+
+  useEffect(() => {
+    axios.get(`${baseURL}`).then((response) => {
+      setPost(response.data);
+    });
+  }, []);
+  if (!post) return null;
+
+  const buyHandler = () => {
+    setShow(true);
+    if (setShow) {
+      setCart(cart + 1);
+      console.log(cart);
+    }
+  };
 
   return (
-    <>
+    <div>
       <Features />
       <div className="wrapper">
         <Alert show={show} variant="success">
@@ -20,64 +40,28 @@ const Home = () => {
         </Alert>
         <div className="container-home">
           <div className="right-text">Our Fresh Product</div>
-          <div className="product">
-            <img className="product-picture" src="/meat.jpg" alt="" />
-            <div className="poduct-name">Sirloin Beef 150gr</div>
-            <div className="poduct-price">130 NTD</div>
-            <div className="poduct-availability">Ready Stock</div>
-            <div className="button-center">
-              <button onClick={() => setShow(true)} className="product-button">
-                Buy
-              </button>
-            </div>
-          </div>
-          <div className="product">
-            <img className="product-picture" src="/salmon.jpg" alt="" />
-            <div className="poduct-name">Salmon 120gr</div>
-            <div className="poduct-price">180 NTD</div>
-            <div className="poduct-availability">Ready Stock</div>
-            <div className="button-center">
-              <button onClick={() => setShow(true)} className="product-button">
-                Buy
-              </button>
-            </div>
-          </div>
-          <div className="product">
-            <img className="product-picture" src="/shrimp.jpg" alt="" />
-            <div className="poduct-name">Shrimp</div>
-            <div className="poduct-price">190 NTD</div>
-            <div className="poduct-availability">Ready Stock</div>
-            <div className="button-center">
-              <button onClick={() => setShow(true)} className="product-button">
-                Buy
-              </button>
-            </div>
-          </div>
-          <div className="product">
-            <img className="product-picture" src="/onion.jpg" alt="" />
-            <div className="poduct-name">Onion 3pcs</div>
-            <div className="poduct-price">80 NTD</div>
-            <div className="poduct-availability">Ready Stock</div>
-            <div className="button-center">
-              <button onClick={() => setShow(true)} className="product-button">
-                Buy
-              </button>
-            </div>
-          </div>
-          <div className="product">
-            <img className="product-picture" src="/potato.jpg" alt="" />
-            <div className="poduct-name">Potato 3pcs</div>
-            <div className="poduct-price">75 NTD</div>
-            <div className="poduct-availability">Ready Stock</div>
-            <div className="button-center">
-              <button onClick={() => setShow(true)} className="product-button">
-                Buy
-              </button>
-            </div>
-          </div>
+          {post.map((element, index) => {
+            return (
+              <div className="product" key={index}>
+                <img
+                  className="product-picture"
+                  src={element.product_image}
+                  alt=""
+                />
+                <div className="poduct-name">{element.product_name}</div>
+                <div className="poduct-price">${element.product_price}</div>
+                <div className="poduct-availability">
+                  Stock: {element.quantity}
+                </div>
+                <button onClick={() => buyHandler()} className="product-button">
+                  Buy
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

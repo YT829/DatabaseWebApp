@@ -45,7 +45,7 @@
 
 .product {
   background-size: 800%;
-  width: 200px;
+  width: 210px;
   height: 400px;
   margin: 20px;
   display: flex;
@@ -63,7 +63,7 @@
 .poduct-name {
   text-align: center;
   margin: 10px;
-  overflow: auto;
+  overflow: visible;
   font-size: 23px;
   font-weight: 700;
 }
