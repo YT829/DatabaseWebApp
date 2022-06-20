@@ -37,31 +37,10 @@ const Shopping = () => {
           <tr>
             <td>
               <div className="cart-info">
-                <img src="images/logo.jpg" alt="" />
+                <img src={post[0].product_image} alt="" />
                 <div>
-                  <p>{post[20].product_name}</p>
-                  <small>${post[20].product_price}</small>
-                  <br />
-                  <button onClick={() => deletePost(post[20].id)}>
-                    <a className="remove" href>
-                      Remove
-                    </a>
-                  </button>
-                </div>
-              </div>
-            </td>
-            <td>
-              <input type="number" defaultValue={1} />
-            </td>
-            <td>$50.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div className="cart-info">
-                <img src="images/logo.jpg" alt="goodies" />
-                <div>
-                  <p>Goodies Wholesale</p>
-                  <small>Price: $50.00</small>
+                  <p>{post[0].product_name}</p>
+                  <small>${post[0].product_price}</small>
                   <br />
                   <a className="remove" href>
                     Remove
@@ -72,15 +51,15 @@ const Shopping = () => {
             <td>
               <input type="number" defaultValue={1} />
             </td>
-            <td>$50.00</td>
+            <td>${post[0].product_price}</td>
           </tr>
           <tr>
             <td>
               <div className="cart-info">
-                <img src="images/logo.jpg" alt="goodies" />
+                <img src={post[1].product_image} alt="goodies" />
                 <div>
-                  <p>Goodies Wholesale</p>
-                  <small>Price: $50.00</small>
+                  <p>{post[1].product_name}</p>
+                  <small>${post[1].product_price}</small>
                   <br />
                   <a className="remove" href>
                     Remove
@@ -91,7 +70,26 @@ const Shopping = () => {
             <td>
               <input type="number" defaultValue={1} />
             </td>
-            <td>$50.00</td>
+            <td>${post[1].product_price}</td>
+          </tr>
+          <tr>
+            <td>
+              <div className="cart-info">
+                <img src={post[2].product_image} alt="goodies" />
+                <div>
+                  <p>{post[2].product_name}</p>
+                  <small>${post[2].product_price}</small>
+                  <br />
+                  <a className="remove" href>
+                    Remove
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input type="number" defaultValue={1} />
+            </td>
+            <td>${post[2].product_price}</td>
           </tr>
         </tbody>
       </table>
@@ -100,15 +98,33 @@ const Shopping = () => {
           <tbody>
             <tr>
               <td>Subtotal</td>
-              <td>$150.00</td>
+              <td>
+                $
+                {post[0].product_price +
+                  post[1].product_price +
+                  post[2].product_price}
+              </td>
             </tr>
             <tr>
               <td>Tax</td>
-              <td>$25.00</td>
+              <td>
+                $
+                {post[0].product_price +
+                  post[1].product_price +
+                  (post[2].product_price * 10) / 100}
+              </td>
             </tr>
             <tr>
               <td>Subtotal</td>
-              <td>$175.00</td>
+              <td>
+                $
+                {post[0].product_price +
+                  post[1].product_price +
+                  post[2].product_price +
+                  post[0].product_price +
+                  post[1].product_price +
+                  (post[2].product_price * 10) / 100}{" "}
+              </td>
             </tr>
           </tbody>
           <div className="inline">
