@@ -8,14 +8,27 @@ const baseURL = "http://localhost:3000/products";
 
 const Shopping = () => {
   const [post, setPost] = useState("");
+  const [item1, setItem1] = useState(1);
+  const [item2, setItem2] = useState(1);
+  const [item3, setItem3] = useState(1);
 
-  const deletePost = (id) => {
-    axios.delete(`baseURL/${id}`);
-    setPost(
-      post.filter((posts) => {
-        return posts.id !== id;
-      })
-    );
+  const incrementHandler1 = () => {
+    setItem1((count) => count + 1);
+  };
+  const decrementHandler1 = () => {
+    setItem1((count) => count - 1);
+  };
+  const incrementHandler2 = () => {
+    setItem2((count) => count + 1);
+  };
+  const decrementHandler2 = () => {
+    setItem2((count) => count - 1);
+  };
+  const incrementHandler3 = () => {
+    setItem3((count) => count + 1);
+  };
+  const decrementHandler3 = () => {
+    setItem3((count) => count - 1);
   };
 
   useEffect(() => {
@@ -49,9 +62,11 @@ const Shopping = () => {
               </div>
             </td>
             <td>
-              <input type="number" defaultValue={1} />
+              <button onClick={decrementHandler1}>-</button>
+              <span> {item1} </span>
+              <button onClick={incrementHandler1}>+</button>
             </td>
-            <td>${post[0].product_price}</td>
+            <td>${post[0].product_price * item1}</td>
           </tr>
           <tr>
             <td>
@@ -68,9 +83,11 @@ const Shopping = () => {
               </div>
             </td>
             <td>
-              <input type="number" defaultValue={1} />
+              <button onClick={decrementHandler2}>-</button>
+              <span> {item2} </span>
+              <button onClick={incrementHandler2}>+</button>
             </td>
-            <td>${post[1].product_price}</td>
+            <td>${post[1].product_price * item2}</td>
           </tr>
           <tr>
             <td>
@@ -87,9 +104,11 @@ const Shopping = () => {
               </div>
             </td>
             <td>
-              <input type="number" defaultValue={1} />
+              <button onClick={decrementHandler3}>-</button>
+              <span> {item3} </span>
+              <button onClick={incrementHandler3}>+</button>
             </td>
-            <td>${post[2].product_price}</td>
+            <td>${post[2].product_price * item3}</td>
           </tr>
         </tbody>
       </table>
@@ -100,30 +119,30 @@ const Shopping = () => {
               <td>Subtotal</td>
               <td>
                 $
-                {post[0].product_price +
-                  post[1].product_price +
-                  post[2].product_price}
+                {post[0].product_price * item1 +
+                  post[1].product_price * item2 +
+                  post[2].product_price * item3}
               </td>
             </tr>
             <tr>
               <td>Tax</td>
               <td>
                 $
-                {post[0].product_price +
-                  post[1].product_price +
-                  (post[2].product_price * 10) / 100}
+                {post[0].product_price * item1 +
+                  post[1].product_price * item2 +
+                  (post[2].product_price * item3 * 10) / 100}
               </td>
             </tr>
             <tr>
               <td>Subtotal</td>
               <td>
                 $
-                {post[0].product_price +
-                  post[1].product_price +
-                  post[2].product_price +
-                  post[0].product_price +
-                  post[1].product_price +
-                  (post[2].product_price * 10) / 100}{" "}
+                {post[0].product_price * item1 +
+                  post[1].product_price * item2 +
+                  post[2].product_price * item3 +
+                  post[0].product_price * item1 +
+                  post[1].product_price * item2 +
+                  (post[2].product_price * item3 * 10) / 100}
               </td>
             </tr>
           </tbody>
